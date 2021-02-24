@@ -36,11 +36,11 @@ public class CommandPhantom implements CommandExecutor {
         }
         if (phantom.contains(player.getUniqueId())) {
             phantom.remove(player.getUniqueId());
-            player.sendMessage(configManager.get().getString("RemovedFromNoSleep").replace("&", "§"));
+            player.sendMessage(configManager.get().getString("RemovedFromPhantom").replace("&", "§"));
             return true;
         }
         phantom.add(player.getUniqueId());
-        player.sendMessage(configManager.get().getString("AddedToNoSleep").replace("&", "§"));
+        player.sendMessage(configManager.get().getString("AddedToPhantom").replace("&", "§"));
         return true;
     }
 }
