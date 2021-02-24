@@ -5,6 +5,10 @@ api-version: 1.13
 authors: [DrBot]
 description: A fair sleeping solution
 commands:
+  phantom:
+    description: adds you to the phantom list
+    usage: /<command>
+    permission: drsleep.phantom
   nosleep:
     description: adds you to the nosleep list
     usage: /<command>
@@ -14,6 +18,9 @@ commands:
     usage: /<command> <reload|clear|list>
     permission: drsleep.admin
 permissions:
+  drsleep.phantom:
+    description: use the phantom command
+    default: false
   drsleep.nosleep:
     description: use the nosleep command
     default: false

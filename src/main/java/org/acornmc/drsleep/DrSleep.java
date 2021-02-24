@@ -14,6 +14,7 @@ public final class DrSleep extends JavaPlugin {
 
     public static DrSleep plugin;
     public static Set<UUID> nosleep = new HashSet<>();
+    public static Set<UUID> phantom = new HashSet<>();
 
     ConfigManager configManager;
 
@@ -24,6 +25,7 @@ public final class DrSleep extends JavaPlugin {
 
         getCommand("nosleep").setExecutor(new CommandNoSleep(configManager));
         getCommand("drsleep").setExecutor(new CommandDrSleep(configManager));
+        getCommand("phantom").setExecutor(new CommandPhantom(configManager));
 
         getServer().getPluginManager().registerEvents(new EventPlayerBedEnter(configManager), this);
         getServer().getPluginManager().registerEvents(new EventLogout(), this);

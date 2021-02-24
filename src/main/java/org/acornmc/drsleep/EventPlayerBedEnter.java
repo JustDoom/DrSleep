@@ -13,11 +13,13 @@ import org.bukkit.event.Listener;
 
 public class EventPlayerBedEnter implements Listener {
     Set<UUID> nosleep;
+    Set<UUID> phantom;
 
     ConfigManager configManager;
 
     public EventPlayerBedEnter(ConfigManager configManager) {
         this.nosleep = DrSleep.nosleep;
+        this.phantom = DrSleep.phantom;
         this.configManager = configManager;
     }
 
@@ -50,7 +52,9 @@ public class EventPlayerBedEnter implements Listener {
             Bukkit.broadcastMessage(configManager.get().getString("DoesSleep").replace("%PLAYER%", player.getName()).replace("&", "§"));
             if(configManager.get().getBoolean("ClearInsomiaAfterSleep") == true){
                 for(Player p : Bukkit.getOnlinePlayers()){
-                    p.setStatistic(Statistic.TIME_SINCE_REST, 0);
+                    if(phantom.contains(p.getUniqueId())) {
+                        p.setStatistic(Statistic.TIME_SINCE_REST, 0);
+                    }
                 }
             }
             return;
